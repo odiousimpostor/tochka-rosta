@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Точка роста — Инновации и Сколково</title>
+  <meta name="description"
+    content="Помогаем компаниям находить инновации, разрабатывать стратегию и получать статус резидента Сколково с налоговыми льготами.">
+  <meta name="keywords"
+    content="инновации, Сколково, резидент Сколково, бизнес-стратегия, дорожная карта, MVP, разработка продукта, налоговые льготы, R&D, консалтинг">
+  <meta name="author" content="Точка роста">
+  <meta property="og:title" content="Точка роста — Инновации и Сколково">
+  <meta property="og:description"
+    content="Выявляем инновации, оформляем стратегию, сопровождаем до получения резиденции Сколково.">
+  <meta property="og:image" content="/images/logo-og.png"> <!-- Убедитесь, что этот путь корректен -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"> <!-- Убедитесь, что этот путь корректен -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- Глобальные стили и сброс --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #1f1f1f;
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+
+    /* --- Стили для Header --- */
+    header {
+      background: #121212;
+      color: #fff;
+      padding: 80px 20px 60px;
+      text-align: center;
+    }
+
+    header img {
+      /* Стиль для логотипа в шапке, если он есть */
+      /* Пример: display: block; margin: 0 auto 20px; width: 120px; */
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    /* --- Стили для кнопок --- */
+    .btn-primary {
+      background: #5c3aff;
+      color: #fff;
+      padding: 14px 28px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 1em;
+      text-decoration: none;
+      /* Для ссылок-кнопок */
+      display: inline-block;
+      /* Для правильных отступов */
+      transition: background 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #4328cc;
+    }
+
+    /* --- Общие стили для секций --- */
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      /* Общий стиль для заголовков секций */
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-align: center;
+      /* Часто заголовки секций центрируют */
+    }
+
+    .section-title {
+      /* Более специфичный стиль для заголовков, если нужен другой вид */
+      font-size: 1.8em;
+      /* Немного меньше, чем основной H2 секции */
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #E0E0E0;
+      text-align: center;
+    }
+
+    section p,
+    section li {
+      font-size: 1.1em;
+      margin-bottom: 15px;
+      color: #d0d0d0;
+    }
+
+    ul {
+      padding-left: 20px;
+      list-style-position: inside;
+    }
+
+    /* --- Секция с блоком изображений --- */
+    .image-block {
+      /* Можно добавить display: flex и gap, если нужно расположить картинки в ряд */
+    }
+
+    .image-block img {
+      width: 100%;
+      /* Картинки будут растягиваться. Возможно, лучше max-width и display: block; margin: auto; */
+      /* или display: grid для колонок */
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* --- Секция "Фокусируемся на направлениях" (highlights) и "Этапы работы" (process-icons) --- */
+    .highlights,
+    .process-icons {
+      display: grid;
+      /* По умолчанию элементы будут пытаться поместиться в одну строку, занимая минимум 220px */
+      /* По мере увеличения экрана, колонок будет становиться больше */
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .highlight-item,
+    .process-step {
+      background: #2a2a2a;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      /* Иконки и текст будут центрированы внутри блока */
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .process-step-icon {
+      /* Стиль для иконок-картинок в "Этапах работы" */
+      filter: invert(1);
+      /* Делает темные иконки белыми */
+      width: 40px;
+      height: 40px;
+      margin-bottom: 15px;
+      /* Отступ от иконки до заголовка h3 */
+      display: inline-block;
+      /* Чтобы margin-bottom работал и иконка была по центру */
+    }
+
+    .highlight-item h3,
+    .process-step h3 {
+      /* margin-top: 15px; Убрали, так как отступ теперь у иконки снизу */
+      font-size: 1.2em;
+      color: #fff;
+      margin-bottom: 10px;
+      /* Отступ от h3 до параграфа */
+    }
+
+    .highlight-item p,
+    .process-step p {
+      font-size: 0.95em;
+      color: #ccc;
+      margin-bottom: 0;
+      /* Убираем нижний отступ у последнего элемента в блоке */
+    }
+
+    /* --- Секция "Примеры проектов" --- */
+    .focus-area-list {
+      /* Используем для вертикального списка блоков */
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      /* Расстояние между примерами проектов */
+    }
+
+    .focus-item-text {
+      /* Стиль для каждого блока в "Примерах проектов" */
+      background: #2a2a2a;
+      /* Похоже на .highlight-item */
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .focus-item-text h3 {
+      font-size: 1.2em;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .focus-item-text p {
+      font-size: 1em;
+      color: #ccc;
+      margin-bottom: 0;
+    }
+
+
+    /* --- Секция с формой --- */
+    .form-section {
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-section h2 {
+      /* Заголовок внутри формы */
+      text-align: left;
+      /* Или center, если так задумано */
+      margin-bottom: 10px;
+    }
+
+    .form-section p {
+      margin-bottom: 20px;
+    }
+
+    .form-section input,
+    .form-section textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      /* Убрал margin-top: 10px, лучше управлять отступом одного элемента */
+      border: 1px solid #444;
+      border-radius: 6px;
+      background: #1f1f1f;
+      color: #fff;
+      font-size: 1em;
+    }
+
+    .form-section textarea {
+      min-height: 100px;
+      /* Для удобства пользователя */
+    }
+
+    .form-section button {
+      /* Кнопка отправки формы */
+      background: #5c3aff;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1em;
+      transition: background 0.3s;
+    }
+
+    .form-section button:hover {
+      background: #4328cc;
+    }
+
+    .form-section p a {
+      /* Ссылка на Telegram */
+      color: #708dff;
+      /* Пример цвета для ссылки */
+      text-decoration: none;
+    }
+
+    .form-section p a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* --- Медиа-запросы для адаптивности --- */
+    @media (min-width: 768px) {
+
+      /* На планшетах можно сделать 2 колонки для .highlights и .process-icons */
+      .highlights,
+      .process-icons {
+        /* Если auto-fit дает хороший результат, этот блок может быть не нужен */
+        /* grid-template-columns: repeat(2, 1fr); */
+      }
+    }
+
+    @media (min-width: 1024px) {
+
+      .highlights,
+      .process-icons {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 колонки на больших экранах */
+      }
+    }
+
+    /* --- Стили для Footer --- */
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+      padding: 40px 20px;
+      border-top: 1px solid #333;
+      /* Небольшой разделитель */
+      margin-top: 40px;
+      /* Отступ от последнего контента */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- Если у вас есть логотип, раскомментируйте и укажите путь: -->
+    <!-- <img src="/images/logo.png" alt="Логотип Точка Роста"> -->
+    <h1>Точка роста — Внедрение инноваций и Сколково</h1>
+    <p>Находим инновации, разрабатываем стратегию и получаем статус резидента Сколково для вашего бизнеса</p>
+    <a href="#form" class="btn-primary">Получить консультацию</a>
+  </header>
+
+  <section class="image-block">
+    <img src="/images/lab-analysis.jpg" alt="Глубокий анализ в научной лаборатории">
+    <img src="/images/futuristic-rover.jpg" alt="Прототип инновационного устройства">
+    <img src="/images/landing-process.png" alt="Этапы процесса получения резиденции">
+    <!-- Убедитесь, что пути к изображениям "/images/..." корректны -->
+  </section>
+
+  <section>
+    <h2>Фокусируемся на направлениях</h2>
+    <div class="highlights">
+      <div class="highlight-item">
+        <h3>Производство и автоматизация</h3>
+        <p>Внедрение новых процессов и оборудования для повышения эффективности</p>
+      </div>
+      <div class="highlight-item">
+        <h3>Строительство и технологии</h3>
+        <p>Новые строительные материалы и методы, модульное проектирование</p>
+      </div>
+      <div class="highlight-item">
+        <h3>IT и цифровизация</h3>
+        <p>Разработка ПО, платформ и цифровых решений под бизнес-задачи</p>
+      </div>
+      <div class="highlight-item">
+        <h3>Биотехнологии и R&D</h3>
+        <p>Исследования, прототипы, клинические и лабораторные разработки</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Этапы работы</h2>
+    <div class="process-icons">
+      <div class="process-step">
+        <img src="/images/users.png" alt="Интервью" class="process-step-icon">
+        <h3>1. Интервью</h3>
+        <p>Анализ бизнеса и выявление направлений</p>
+      </div>
+      <div class="process-step">
+        <img src="/images/microscope.png" alt="Исследование" class="process-step-icon">
+        <h3>2. Исследование</h3>
+        <p>Аналитика, патенты, глобальные тренды</p>
+      </div>
+      <div class="process-step">
+        <img src="/images/robotics.png" alt="Стратегия" class="process-step-icon">
+        <h3>3. Стратегия</h3>
+        <p>Дорожная карта, MVP и бюджет</p>
+      </div>
+      <div class="process-step">
+        <img src="/images/star.png" alt="Подача" class="process-step-icon">
+        <h3>4. Подача</h3>
+        <p>Подготовка заявки и сопровождение до получения статуса</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="form">
+    <h2>Оставьте заявку</h2>
+    <p>Свяжемся с вами и обсудим, как внедрить инновации в ваш бизнес</p>
+    <form
+      action="https://docs.google.com/forms/d/e/1FAIpQLScKBG0UZlGKvTfiiAbChB4Q_GLJ51dWV-QppP6spFuJnNthCw/viewform?usp=header"
+      method="get" target="_blank">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="email" name="email" placeholder="Ваш email" required>
+      <textarea name="message" rows="5" placeholder="Расскажите о вашей компании"></textarea>
+      <button type="submit">Отправить</button>
+    </form>
+    <p>Или напишите нам в Telegram: <a href="https://t.me/OdiousImpostor" target="_blank">@OdiousImpostor</a></p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Примеры проектов</h2>
+    <div class="focus-area-list">
+      <div class="focus-item-text">
+        <h3>Белковый гидролизат из насекомых</h3>
+        <p>Мы помогли внедрить инновацию для получения белкового гидролизата из насекомых. Через 3 месяца клиент получил
+          статус резидента Сколково и начал экономить на налоге на прибыль и страховых взносах.</p>
+      </div>
+      <div class="focus-item-text">
+        <h3>AR и ИИ в строительстве</h3>
+        <p>Совместно с заказчиком разработали инновационную идею по применению дополненной реальности и искусственного
+          интеллекта в процессе стройки — от разметки до технадзора.</p>
+      </div>
+      <div class="focus-item-text">
+        <h3>ИИ в логистике и экспедировании</h3>
+        <p>Разработали и защитили концепцию системы маршрутного планирования на базе ИИ. Повысили эффективность
+          логистической компании и подготовили её к получению льгот.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Точка роста. Все права защищены.
+  </footer>
+</body>
+
+</html>
