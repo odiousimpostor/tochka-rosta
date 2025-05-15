@@ -81,9 +81,7 @@
       margin-bottom: 30px;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
-    .highlights, .process-icons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
       gap: 30px;
       margin-bottom: 60px;
     }
@@ -103,11 +101,19 @@
       font-size: 0.95em;
       color: #ccc;
     }
-  </style>
+  @media (min-width: 1024px) {
+  .highlights,
+  .process-icons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
 </head>
 <body>
   <header>
-    <h1>Точка роста — Внедрение инноваций и Сколково</h1>
+    <img src="/images/logo.png" alt="Логотип Точка Роста" style="width: 120px; margin-bottom: 20px;">
+<h1>Точка роста — Внедрение инноваций и Сколково</h1>
     <p>Находим инновации, разрабатываем стратегию и получаем статус резидента Сколково для вашего бизнеса</p>
     <a href="#form"><button class="btn-primary">Получить консультацию</button></a>
   </header>
@@ -115,7 +121,7 @@
   <section class="image-block">
     <img src="/images/lab-analysis.jpg" alt="Глубокий анализ в научной лаборатории">
     <img src="/images/futuristic-rover.jpg" alt="Прототип инновационного устройства">
-    <img src="/images/landing-process.jpg" alt="Этапы процесса получения резиденции">
+    <img src="/images/landing-process.png" alt="Этапы процесса получения резиденции">
   </section>
 
   <section>
@@ -144,19 +150,23 @@
     <h2>Этапы работы</h2>
     <div class="process-icons">
       <div class="process-step">
-        <h3>1. Интервью</h3>
+  <img src="/images/users.png" alt="Интервью" class="icon" style="filter: invert(1); width: 40px; height: 40px;">
+  <h3>1. Интервью</h3>
         <p>Анализ бизнеса и выявление направлений</p>
       </div>
       <div class="process-step">
-        <h3>2. Исследование</h3>
+  <img src="/images/microscope.png" alt="Исследование" class="icon" style="filter: invert(1); width: 40px; height: 40px;">
+  <h3>2. Исследование</h3>
         <p>Аналитика, патенты, глобальные тренды</p>
       </div>
       <div class="process-step">
-        <h3>3. Стратегия</h3>
+  <img src="/images/robotics.png" alt="Стратегия" class="icon" style="filter: invert(1); width: 40px; height: 40px;">
+  <h3>3. Стратегия</h3>
         <p>Дорожная карта, MVP и бюджет</p>
       </div>
       <div class="process-step">
-        <h3>4. Подача</h3>
+  <img src="/images/star.png" alt="Подача" class="icon" style="filter: invert(1); width: 40px; height: 40px;">
+  <h3>4. Подача</h3>
         <p>Подготовка заявки и сопровождение до получения статуса</p>
       </div>
     </div>
@@ -172,6 +182,24 @@
       <button type="submit">Отправить</button>
     </form>
     <p>Или напишите нам в Telegram: <a href="https://t.me/OdiousImpostor" target="_blank">@OdiousImpostor</a></p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Примеры проектов</h2>
+    <div class="focus-area-list">
+      <div class="focus-item-text">
+        <h3>Белковый гидролизат из насекомых</h3>
+        <p>Мы помогли внедрить инновацию для получения белкового гидролизата из насекомых. Через 3 месяца клиент получил статус резидента Сколково и начал экономить на налоге на прибыль и страховых взносах.</p>
+      </div>
+      <div class="focus-item-text">
+        <h3>AR и ИИ в строительстве</h3>
+        <p>Совместно с заказчиком разработали инновационную идею по применению дополненной реальности и искусственного интеллекта в процессе стройки — от разметки до технадзора.</p>
+      </div>
+      <div class="focus-item-text">
+        <h3>ИИ в логистике и экспедировании</h3>
+        <p>Разработали и защитили концепцию системы маршрутного планирования на базе ИИ. Повысили эффективность логистической компании и подготовили её к получению льгот.</p>
+      </div>
+    </div>
   </section>
 
   <footer>
